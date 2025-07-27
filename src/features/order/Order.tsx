@@ -4,7 +4,28 @@ import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
-} from "../../utils/helpers";
+} from "../../utils/helpers.js";
+
+type CartItem = {
+  pizzaId: number;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+  totalPrice: number;
+}
+
+type OrderObject = {
+  id: string;
+  customer: string;
+  phone: string;
+  address: string;
+  priority: boolean;
+  estimatedDelivery: number;
+  cart: CartItem[];
+  position: string;
+  orderPrice: number;
+  priorityPrice: number;
+}
 
 const order = {
   id: "ABCDEF",
@@ -45,13 +66,13 @@ function Order() {
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
     id,
-    status,
     priority,
     priorityPrice,
     orderPrice,
     estimatedDelivery,
     cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (

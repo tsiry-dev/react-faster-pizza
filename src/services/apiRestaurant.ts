@@ -1,5 +1,17 @@
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
+// type OrderObject = {
+//   id: string;
+//   customer: string;
+//   phone: string;
+//   address: string;
+//   priority: boolean;
+//   estimatedDelivery: number;
+//   cart: CartItem[];
+//   position: string;
+//   orderPrice: number;
+// }
+
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menu`);
 
@@ -10,7 +22,7 @@ export async function getMenu() {
   return data;
 }
 
-export async function getOrder(id) {
+export async function getOrder(id: string) {
   const res = await fetch(`${API_URL}/order/${id}`);
   if (!res.ok) throw Error(`Couldn't find order #${id}`);
 
@@ -18,7 +30,7 @@ export async function getOrder(id) {
   return data;
 }
 
-export async function createOrder(newOrder) {
+export async function createOrder(newOrder: object) {
   try {
     const res = await fetch(`${API_URL}/order`, {
       method: 'POST',
@@ -36,7 +48,7 @@ export async function createOrder(newOrder) {
   }
 }
 
-export async function updateOrder(id, updateObj) {
+export async function updateOrder(id: string, updateObj: object) {
   try {
     const res = await fetch(`${API_URL}/order/${id}`, {
       method: 'PATCH',

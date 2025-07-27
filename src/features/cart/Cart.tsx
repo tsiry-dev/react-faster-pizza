@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom';
 
+type CartItem = {
+  pizzaId: number;
+  name: string;
+  quantity: number;
+  unitPrice: number;
+  totalPrice: number;
+}
+
 const fakeCart = [
   {
     pizzaId: 12,
@@ -25,7 +33,9 @@ const fakeCart = [
 ];
 
 function Cart() {
-  const cart = fakeCart;
+  const cart: CartItem[] = fakeCart;
+  console.log(cart);
+  
 
   return (
     <div>

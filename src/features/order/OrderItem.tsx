@@ -1,4 +1,16 @@
-function OrderItem({ item, isLoadingIngredients, ingredients }) {
+import { formatCurrency } from "../../utils/helpers";
+
+type OrderItemProps = {
+  item: {
+    quantity: number;
+    name: string;
+    totalPrice: number;
+  };
+  isLoadingIngredients: boolean;
+  ingredients: string[];
+};
+
+function OrderItem({ item, isLoadingIngredients, ingredients }: OrderItemProps) {
   const { quantity, name, totalPrice } = item;
 
   return (

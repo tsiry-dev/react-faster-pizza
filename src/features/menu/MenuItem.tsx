@@ -1,4 +1,17 @@
-function MenuItem({ pizza }) {
+import { formatCurrency } from "../../utils/helpers";
+
+type MenuItemProps = {
+  pizza: {
+    id: number;
+    name: string;
+    unitPrice: number;
+    ingredients: string[];
+    soldOut: boolean;
+    imageUrl: string;
+  }
+}
+
+function MenuItem({ pizza }: MenuItemProps) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   return (
